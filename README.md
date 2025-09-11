@@ -14,7 +14,7 @@ Foi desenvolvido como parte da disciplina de **Front-End**.
 ## 🚀 Tecnologias utilizadas
 - **HTML5**
 - **CSS3**
-- *(opcional: JavaScript para interatividade)*
+- **JavaScript**
 
 ## 📂 Estrutura de pastas
 
