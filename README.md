@@ -18,28 +18,10 @@ Foi desenvolvido como parte da disciplina de **Front-End**.
 
 ## 📂 Estrutura de pastas
 / (raiz)
-├── assets/                 
-│   ├── css/
-│   │   ├── style.css       
-│   │   └── contato.css     
-│   │
-│   ├── js/
-│   │   ├── main.js         
-│   │   └── contato.js      
-│   │
-│   ├── img/                
-│   │   ├── logo.png
-│   │   └── banner.jpg
-│   │
-│   └── fonts/              
-│
-├── components/             
-|   ├── header.html         
-|   ├── footer.html         
-|   └── navbar.html         
-│
+├── css/
+├── img/
+├── js/
 ├── index.html
-├── contato.html
 ├── LICENSE
 └── README.md
 
