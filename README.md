@@ -18,12 +18,30 @@ Foi desenvolvido como parte da disciplina de **Front-End**.
 
 ## 📂 Estrutura de pastas
 / (raiz)
-├── css/
-├── img/
-├── js/
-├── index.html
-├── LICENSE
-└── README.md
+│
+├── index.html              # Página principal
+├── sobre.html              # Exemplo de outra página
+├── contato.html            # Exemplo de outra página
+│
+├── assets/                 # Arquivos estáticos
+│   ├── css/
+│   │   ├── style.css       # Estilo global
+│   │   └── contato.css     # Estilo específico de uma página (se precisar)
+│   │
+│   ├── js/
+│   │   ├── main.js         # Funções globais
+│   │   └── contato.js      # JS específico da página contato
+│   │
+│   ├── img/                # Imagens
+│   │   ├── logo.png
+│   │   └── banner.jpg
+│   │
+│   └── fonts/              # Fontes customizadas (se tiver)
+│
+└── components/             # Partes reutilizáveis
+    ├── header.html         # Cabeçalho
+    ├── footer.html         # Rodapé
+    └── navbar.html         # Menu
 
 ## 🎓 Objetivo acadêmico
 Este projeto foi desenvolvido para fins educacionais como exercício de front-end.  
