@@ -16,15 +16,6 @@ Foi desenvolvido como parte da disciplina de **Front-End**.
 - **CSS3**
 - **JavaScript**
 
-## 📂 Estrutura de pastas
-/ (raiz)
-├── css/
-├── img/
-├── js/
-├── index.html
-├── LICENSE
-└── README.md
-
 ## 🎓 Objetivo acadêmico
 Este projeto foi desenvolvido para fins educacionais como exercício de front-end.  
 Não representa uma empresa real.
