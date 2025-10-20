@@ -301,7 +301,9 @@ button[class ^= navbar]:hover{
     margin-top: 6rem;
 }
 .header-inner-right img{
-    max-width: 520px;
+    width: 1000px;
+    height: 780px;
+    max-width: 580px;
     margin: 0 auto;
 }
 
