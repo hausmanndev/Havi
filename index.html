@@ -36,16 +36,19 @@
                             <a href="index.html" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Sobre</a>
+                            <a href="#about" class="nav-link">Sobre</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Produtos</a>
+                            <a href="produtos.html" class="nav-link">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Soluções</a>
+                            <a href="encomendas.html" class="nav-link">Encomendas</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contato</a>
+                            <a href="#package-service" class="nav-link">Soluções</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contato</a>
                         </li>
                     </ul>
                     <div class="search-bar">
@@ -54,7 +57,7 @@
                                 <span class="search-icon flex">
                                     <img src="assets/img/search-icon-dark.png">
                                 </span>
-                                <input type="search" class="search-control" placeholder="Search here">
+                                <input type="search" class="search-control" placeholder="Buscar aqui">
                             </div>
                         </form>
                     </div>
@@ -96,7 +99,7 @@
                     </div>
                     <div class="about-right flex">
                         <div class="img">
-                            <img src="assets/img/about-img.png">
+                            <img src="assets/img/about-2.png">
                         </div>
                     </div>
                 </div>
@@ -281,26 +284,44 @@
         <!-- contact section -->
         <section id="contact" class="contact py">
             <div class="container grid">
+
+                <!-- Mapa -->
                 <div class="contact-left">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2384.6268289831164!2d-6.214682984112116!3d53.29621947996855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486709e0c9c80f8f%3A0x92f408d10f2277c2!2sREVO!5e0!3m2!1sen!2snp!4v1636264848776!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.8651725865325!2d-46.56120982488829!3d-23.64499907874239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4328c992748f%3A0xcea3c3e698444297!2sSENAI%20S%C3%A3o%20Caetano%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1761178860798!5m2!1spt-BR!2sbr" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" >
+                    </iframe>
                 </div>
+
+                <!-- Formulário de contato -->
                 <div class="contact-right text-white text-center bg-blue">
                     <div class="contact-head">
-                        <h3 class="lead">Contact Us</h3>
-                        <p class="text text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga.</p>
+                        <h3 class="lead">Fale Conosco</h3>
+                        <p class="text text-md">
+                            Deseja solicitar um orçamento, parceria ou mais informações sobre nossos produtos hospitalares?  
+                            Envie uma mensagem e retornaremos o mais breve possível.
+                        </p>
                     </div>
+
                     <form>
                         <div class="form-element">
-                            <input type="text" class="form-control" placeholder="Your name">
+                            <input type="text" class="form-control" placeholder="Seu nome completo" required>
                         </div>
                         <div class="form-element">
-                            <input type="email" class="form-control" placeholder="Your email">
+                            <input type="email" class="form-control" placeholder="Seu e-mail profissional" required>
                         </div>
                         <div class="form-element">
-                            <textarea rows="5" placeholder="Your Message" class="form-control"></textarea>
+                            <input type="text" class="form-control" placeholder="Nome da instituição (opcional)">
+                        </div>
+                        <div class="form-element">
+                            <textarea rows="5" placeholder="Digite sua mensagem" class="form-control" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-white btn-submit">
-                            <i class="fas fa-arrow-right"></i> Send Message
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
                         </button>
                     </form>
                 </div>

@@ -3,7 +3,7 @@
 /* variables */
 :root{
     --fros-blue-color: #003366;
-    --light-blue-color: #16c5ff;
+    --light-blue-color: #3DC5DB;
     --dark-color: #202020;
     --light-gray: #dedede;
     --dark-gray: #a1a1a0;
@@ -349,17 +349,16 @@ button[class ^= navbar]:hover{
 }
 .about-right .img{
     width: 100%;
-    background-color: #3983fe;
-    max-width: 537px;
+    max-width: 580px;
     position: relative;
 }
 .about-right .img img{
-    padding-top: 10rem;
     -webkit-transform: scaleX(1.03);
         -ms-transform: scaleX(1.03);
             transform: scaleX(1.03);
 }
-.about-right .img::after, .about-right .img::before{
+/*Banner Home*/
+/* .about-right .img::after, .about-right .img::before{
     content: "";
     position: absolute;
     width: 100%;
@@ -376,13 +375,13 @@ button[class ^= navbar]:hover{
     left: 0;
     background-color: var(--fros-blue-color);
     z-index: -2;
-}
+} */
 
 /* banner one section */
 .banner-one{
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 80, 213, 0.9)), to(rgba(0, 90, 213, 0.85))), url('../images/banner-1-img.png') top/cover no-repeat;
-    background: -o-linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
-    background: linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 70, 140, 0.9)), to(rgba(0, 120, 200, 0.85))), url('../images/banner-1-img.png') top/cover no-repeat;
+    background: -o-linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
+    background: linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85)), url('../images/banner-1-img.png') top/cover no-repeat;
     height: 480px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -444,9 +443,9 @@ button[class ^= navbar]:hover{
 
 /* banner two section */
 .banner-two{
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 80, 213, 0.9)), to(rgba(0, 90, 213, 0.85))), url('../images/banner-two-bg.png') top/cover no-repeat;
-    background: -o-linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-two-bg.png') top/cover no-repeat;
-    background: linear-gradient(rgba(0, 80, 213, 0.9), rgba(0, 90, 213, 0.85)), url('../images/banner-two-bg.png') top/cover no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 70, 140, 0.9)), to(rgba(0, 120, 200, 0.85))), url('../images/banner-two-bg.png')  top/cover no-repeat;
+    background: -o-linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85)), url('../images/banner-two-bg.png') top/cover no-repeat;
+    background: linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85)), url('../images/banner-two-bg.png') top/cover no-repeat;
     padding: 13.6rem 0;
 }
 .banner-two-left img{
@@ -511,9 +510,9 @@ button[class ^= navbar]:hover{
     margin-top: 14rem;
 }
 .package-service{
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 80, 213, 0.85)), to(rgba(0, 80, 213, 0.95))), url('../images/package-service-img.jpg') center/cover no-repeat;
-    background: -o-linear-gradient(rgba(0, 80, 213, 0.85), rgba(0, 80, 213, 0.95)), url('../images/package-service-img.jpg') center/cover no-repeat;
-    background: linear-gradient(rgba(0, 80, 213, 0.85), rgba(0, 80, 213, 0.95)), url('../images/package-service-img.jpg') center/cover no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 70, 140, 0.9)), to(rgba(0, 120, 200, 0.85))), url('../images/package-service-img.jpg') top/cover no-repeat;
+    background: -o-linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85)), url('../images/package-service-img.jpg') top/cover no-repeat;
+    background: linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85)), url('../images/package-service-img.jpg') top/cover no-repeat;
 }
 .package-service-head{
     color: var(--light-color);
@@ -611,15 +610,28 @@ button[class ^= navbar]:hover{
 .contact-right form{
     margin-top: 5rem;
 }
-.form-element .form-control{
+.form-element .form-control {
     width: 100%;
-    background-color: #3373dd;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 70, 140, 0.9)), to(rgba(0, 120, 200, 0.85)));
+    background: -o-linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85));
+    background: linear-gradient(rgba(0, 70, 140, 0.9), rgba(0, 120, 200, 0.85));
     border: none;
     outline: 0;
     padding: 1rem 1.6rem;
     margin-bottom: 1.6rem;
     color: var(--light-color);
+    border-radius: 6px; /* opcional: melhora o visual */
+    transition: var(--transition);
 }
+
+.form-element .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form-element .form-control:focus {
+    box-shadow: 0 0 10px rgba(0, 120, 200, 0.5);
+}
+
 .form-element .form-control::-webkit-input-placeholder{
     color: var(--light-color);
 }
