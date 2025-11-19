@@ -23,6 +23,9 @@
 html{
     font-size: 10px;
 }
+html, body{
+    scroll-behavior: smooth;
+}
 body{
     font-size: 1.6rem;
     line-height: 1.6;

@@ -32,6 +32,8 @@ function filtrarCategoria(cat) {
             card.style.display = card.classList.contains(cat) ? "block" : "none";
         }
     });
+
+    document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
 }
 
 function pesquisarProduto() {
@@ -43,5 +45,7 @@ function pesquisarProduto() {
 
         card.style.display = titulo.includes(filtro) ? "block" : "none";
     });
+
+    document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
 }
 

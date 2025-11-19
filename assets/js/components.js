@@ -18,12 +18,12 @@ async function loadComponent(id, path) {
 document.addEventListener("DOMContentLoaded", () => {
     // Carrega automaticamente os placeholders se existirem
     if (document.getElementById("header-placeholder")) {
-        loadComponent("header-placeholder", "../../components/header.html");
+        loadComponent("header-placeholder", "/components/header.html");
     }
     if (document.getElementById("navbar-placeholder")) {
-        loadComponent("navbar-placeholder", "../../components/navbar.html");
+        loadComponent("navbar-placeholder", "/components/navbar.html");
     }
     if (document.getElementById("footer-placeholder")) {
-        loadComponent("footer-placeholder", "../../components/footer.html");
+        loadComponent("footer-placeholder", "/components/footer.html");
     }
 });
