@@ -21,3 +21,27 @@ window.addEventListener('resize', () =>{
         document.body.classList.remove('resize-animation-stopper');
     }, 400);
 });
+
+function filtrarCategoria(cat) {
+    const cards = document.querySelectorAll(".product-card");
+
+    cards.forEach(card => {
+        if (cat === "todos") {
+            card.style.display = "block";
+        } else {
+            card.style.display = card.classList.contains(cat) ? "block" : "none";
+        }
+    });
+}
+
+function pesquisarProduto() {
+    let filtro = document.getElementById("searchInput").value.toLowerCase();
+    const cards = document.querySelectorAll(".product-card");
+
+    cards.forEach(card => {
+        let titulo = card.querySelector("h2").innerText.toLowerCase();
+
+        card.style.display = titulo.includes(filtro) ? "block" : "none";
+    });
+}
+

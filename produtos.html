@@ -16,36 +16,228 @@
         <div class="container">
             <h1>Produtos Hospitalares</h1>
             <p>Explore nossa linha completa de suprimentos médicos e equipamentos hospitalares, projetados para segurança e eficiência.</p>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="assets/img/produto-mascara.png" alt="Máscaras Cirúrgicas">
-                    <h3>Máscaras Cirúrgicas</h3>
-                    <p>Proteção de qualidade para profissionais da saúde e pacientes.</p>
-                </div>
-                <div class="product-card">
-                    <img src="assets/img/produto-luvas.png" alt="Luvas Descartáveis">
-                    <h3>Luvas Descartáveis</h3>
-                    <p>Luvas estéreis e não estéreis para diversos procedimentos médicos.</p>
-                </div>
-                <div class="product-card">
-                    <img src="assets/img/produto-termometro.png" alt="Equipamentos Médicos">
-                    <h3>Equipamentos Médicos</h3>
-                    <p>Termômetros, oxímetros e outros instrumentos essenciais.</p>
-                </div>
-                <div class="product-card">
-                    <img src="assets/img/produto-covid.png" alt="Testes Rápidos">
-                    <h3>Testes Rápidos</h3>
-                    <p>Testes confiáveis para monitoramento de saúde.</p>
-                </div>
-                <div class="product-card">
-                    <img src="assets/img/produto-seringa.png" alt="Séringas">
-                    <h3>Séringas</h3>
-                    <p>Séringas descartáveis de alta qualidade para uso hospitalar.</p>
-                </div>
-                <div class="product-card">
-                    <img src="assets/img/produto-bisturi.png" alt="Bisturis">
-                    <h3>Bisturis</h3>
-                    <p>Instrumentos cirúrgicos precisos e confiáveis para procedimentos médicos.</p>
+            <div class="layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3>Filtrar por Categoria</h3>
+                    <ul>
+                        <li onclick="filtrarCategoria('todos')">Todos</li>
+                        <li onclick="filtrarCategoria('equipamentos')">Equipamentos e Móveis</li>
+                        <li onclick="filtrarCategoria('epis')">EPIs</li>
+                        <li onclick="filtrarCategoria('instrumentos')">Instrumentos Cirúrgicos</li>
+                    </ul>
+
+                    <h3>Pesquisar Produto</h3>
+                    <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="pesquisarProduto()">
+                </aside>
+
+                <!-- Grid de produtos -->
+                <div class="product-grid">
+                    <!-- Equipamentos e Móveis -->
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Máquina de Ressonância Magnética', 'assets/img/Máquina de Ressonância Magnética.png', 'Equipamento de alta tecnologia para diagnóstico por imagem.')">
+                        <img src="assets/img/maquina-ressonancia.png" alt="Máquina de Ressonância Magnética">
+                        <h2>Máquina de Ressonância Magnética</h2>
+                        <p>Equipamento de alta tecnologia para diagnóstico por imagem.</p>
+                        <span class="preco">R$ 3.200.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Ventilador Hospitalar', 'assets/img/Máquina de Suporte à Vida (Ventilador Hospitalar).png', 'Equipamento essencial para suporte respiratório em UTIs e emergências.')">
+                        <img src="assets/img/Máquina_de_Suporte_à_Vida__Ventilador_Hospitalar.png" alt="Ventilador Hospitalar">
+                        <h2>Máquina de Suporte à Vida (Ventilador Hospitalar)</h2>
+                        <p>Equipamento essencial para suporte respiratório em UTIs e emergências.</p>
+                        <span class="preco">R$ 38.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Maca Hospitalar', 'assets/img/Maca Hospitalar.png', 'Estrutura resistente e versátil para transporte e acomodação de pacientes.')">
+                        <img src="assets/img/Maca_Hospitalar.png" alt="Maca Hospitalar">
+                        <h2>Maca Hospitalar</h2>
+                        <p>Estrutura resistente e versátil para transporte e acomodação de pacientes.</p>
+                        <span class="preco">R$ 3.200,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Cadeira de Rodas', 'assets/img/Cadeira de Rodas.png', 'Modelo hospitalar leve, resistente e confortável.')">
+                        <img src="assets/img/Cadeira_de_Rodas.png" alt="Cadeira de Rodas">
+                        <h2>Cadeira de Rodas</h2>
+                        <p>Modelo hospitalar leve, resistente e confortável.</p>
+                        <span class="preco">R$ 2.200,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Carrinho de Anestesia', 'assets/img/Carrinho de Anestesia.png', 'Sistema completo para procedimentos anestésicos.')">
+                        <img src="assets/img/Carrinho_de_Anestesia.png" alt="Carrinho de Anestesia">
+                        <h2>Carrinho de Anestesia</h2>
+                        <p>Sistema completo para procedimentos anestésicos.</p>
+                        <span class="preco">R$ 65.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Monitor Cardíaco Multiparamétrico', 'assets/img/Monitor Cardíaco Multiparamétrico.png', 'Monitoramento avançado de sinais vitais em tempo real.')">
+                        <img src="assets/img/Monitor_Cardíaco_Multiparamétrico.png" alt="Monitor Cardíaco Multiparamétrico">
+                        <h2>Monitor Cardíaco Multiparamétrico</h2>
+                        <p>Monitoramento avançado de sinais vitais em tempo real.</p>
+                        <span class="preco">R$ 11.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Desfibrilador Externo Automático (DEA)', 'assets/img/Desfibrilador Externo Automático (DEA).png', 'Equipamento essencial para atendimento de emergências cardíacas.')">
+                        <img src="assets/img/Desfibrilador_Externo_Automático.png" alt="DEA">
+                        <h2>Desfibrilador Externo Automático (DEA)</h2>
+                        <p>Equipamento essencial para atendimento de emergências cardíacas.</p>
+                        <span class="preco">R$ 9.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Bomba de Infusão', 'assets/img/Bomba de Infusão.png', 'Controle preciso de administração de medicamentos e fluidos.')">
+                        <img src="assets/img/Bomba_de_Infusão.png" alt="Bomba de Infusão">
+                        <h2>Bomba de Infusão</h2>
+                        <p>Controle preciso de administração de medicamentos e fluidos.</p>
+                        <span class="preco">R$ 5.200,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Ultrassom Portátil', 'assets/img/Ultrassom Portátil.png', 'Equipamento compacto para exames rápidos e eficientes.')">
+                        <img src="assets/img/Ultrassom_Portátil.png" alt="Ultrassom Portátil">
+                        <h2>Ultrassom Portátil</h2>
+                        <p>Equipamento compacto para exames rápidos e eficientes.</p>
+                        <span class="preco">R$ 20.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Foco Cirúrgico de Teto', 'assets/img/Foco Cirúrgico de Teto.png', 'Iluminação de alta precisão para procedimentos cirúrgicos.')">
+                        <img src="assets/img/Foco_Cirúrgico_de_Teto.png" alt="Foco Cirúrgico">
+                        <h2>Foco Cirúrgico de Teto</h2>
+                        <p>Iluminação de alta precisão para procedimentos cirúrgicos.</p>
+                        <span class="preco">R$ 26.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Autoclave Hospitalar', 'assets/img/Autoclave Hospitalar.png', 'Esterilização eficiente para instrumentos hospitalares.')">
+                        <img src="assets/img/Autoclave_Hospitalar.png" alt="Autoclave">
+                        <h2>Autoclave Hospitalar</h2>
+                        <p>Esterilização eficiente para instrumentos hospitalares.</p>
+                        <span class="preco">R$ 60.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Eletrocardiógrafo (ECG)', 'assets/img/Eletrocardiógrafo (ECG).png', 'Aparelho digital para registro preciso da atividade cardíaca.')">
+                        <img src="assets/img/Eletrocardiógrafo.png" alt="ECG">
+                        <h2>Eletrocardiógrafo (ECG)</h2>
+                        <p>Aparelho digital para registro preciso da atividade cardíaca.</p>
+                        <span class="preco">R$ 7.200,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Bomba de Perfusão', 'assets/img/Bomba de Perfusão.png', 'Administração automatizada de fluidos e medicamentos.')">
+                        <img src="assets/img/Bomba_de_Perfusão.png" alt="Bomba de Perfusão">
+                        <h2>Bomba de Perfusão</h2>
+                        <p>Administração automatizada de fluidos e medicamentos.</p>
+                        <span class="preco">R$ 5.400,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Aparelho de Raio-X Móvel', 'assets/img/Aparelho de Raio-X Móvel.png', 'Modelo portátil indicado para uso em leitos e clínicas.')">
+                        <img src="assets/img/Aparelho_de_Raio-X_Móvel.png" alt="Raio-X Móvel">
+                        <h2>Aparelho de Raio-X Móvel</h2>
+                        <p>Modelo portátil indicado para uso em leitos e clínicas.</p>
+                        <span class="preco">R$ 12.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Sistema de Endoscopia', 'assets/img/Sistema de Endoscopia.png', 'Torre completa para procedimentos endoscópicos.')">
+                        <img src="assets/img/Sistema_de_Endoscopia.png" alt="Endoscopia">
+                        <h2>Sistema de Endoscopia</h2>
+                        <p>Torre completa para procedimentos endoscópicos.</p>
+                        <span class="preco">R$ 85.000,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Aspirador Cirúrgico Hospitalar', 'assets/img/Aspirador Cirúrgico Hospitalar.png', 'Equipamento de sucção para procedimentos clínicos e cirúrgicos.')">
+                        <img src="assets/img/Aspirador_Cirúrgico_Hospitalar.png" alt="Aspirador Cirúrgico">
+                        <h2>Aspirador Cirúrgico Hospitalar</h2>
+                        <p>Equipamento de sucção para procedimentos clínicos e cirúrgicos.</p>
+                        <span class="preco">R$ 4.200,00</span>
+                    </div>
+
+                    <div class="product-card equipamentos" onclick="abrirDetalhes('Máquina de Raio X Fixo', 'assets/img/Máquina de Raio X (fixo).png', 'Equipamento fixo de alta capacidade para diagnósticos radiológicos.')">
+                        <img src="assets/img/Máquina_de_Raio_X.png" alt="Raio X Fixo">
+                        <h2>Máquina de Raio X (Fixa)</h2>
+                        <p>Equipamento fixo de alta capacidade para diagnósticos radiológicos.</p>
+                        <span class="preco">R$ 280.000,00</span>
+                    </div>
+
+                    <!-- EPIs -->
+                    <div class="product-card epis" onclick="abrirDetalhes('Kit básico de EPIs', 'assets/img/Kit básico de EPIs.png', 'Kit essencial com máscara, luvas e touca.')">
+                        <img src="assets/img/kit_básico_de_EPI.png" alt="Kit básico EPIs">
+                        <h2>Kit básico de EPIs</h2>
+                        <p>Kit essencial com máscara, luvas e touca.</p>
+                        <span class="preco">R$ 10,00</span>
+                    </div>
+
+                    <div class="product-card epis" onclick="abrirDetalhes('Kit intermediário de EPIs', 'assets/img/Kit intermediário de EPIs.png', 'Kit com maior proteção para procedimentos clínicos.')">
+                        <img src="assets/img/kit_de_EPI_de_nível_intermediário.png" alt="Kit intermediário EPIs">
+                        <h2>Kit intermediário de EPIs</h2>
+                        <p>Kit com maior proteção para procedimentos clínicos.</p>
+                        <span class="preco">R$ 30,00</span>
+                    </div>
+
+                    <div class="product-card epis" onclick="abrirDetalhes('Kit avançado de EPIs', 'assets/img/Kit avançado de EPIs.png', 'Kit estéril para cirurgias e procedimentos de alta complexidade.')">
+                        <img src="assets/img/kit_de_EPI_de_nível_avançado.png" alt="Kit avançado EPIs">
+                        <h2>Kit avançado de EPIs</h2>
+                        <p>Kit estéril para cirurgias e procedimentos de alta complexidade.</p>
+                        <span class="preco">R$ 80,00</span>
+                    </div>
+
+                    <!-- Instrumentos Cirúrgicos -->
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Bisturi Cirúrgico', 'assets/img/Bisturi Cirúrgico.png', 'Lâmina descartável de alta precisão.')">
+                        <img src="assets/img/Bisturi_Cirúrgico.png" alt="Bisturi">
+                        <h2>Bisturi Cirúrgico</h2>
+                        <p>Lâmina descartável de alta precisão.</p>
+                        <span class="preco">R$ 3,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Pinça Hemostática Kelly', 'assets/img/Pinça Hemostática (Kelly).png', 'Instrumento essencial para controle de sangramento.')">
+                        <img src="assets/img/Pinça_Hemostática__Kelly.png" alt="Kelly">
+                        <h2>Pinça Hemostática (Kelly)</h2>
+                        <p>Instrumento essencial para controle de sangramento.</p>
+                        <span class="preco">R$ 50,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Tesoura Cirúrgica Metzenbaum', 'assets/img/Tesoura Cirúrgica (Metzenbaum).png', 'Tesoura leve e precisa para tecidos delicados.')">
+                        <img src="assets/img/Tesoura_Cirúrgica__Metzenbaum.png" alt="Metzenbaum">
+                        <h2>Tesoura Cirúrgica (Metzenbaum)</h2>
+                        <p>Tesoura leve e precisa para tecidos delicados.</p>
+                        <span class="preco">R$ 75,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Afastador Cirúrgico Farabeuf', 'assets/img/Afastador Cirúrgico (Farabeuf).png', 'Instrumento utilizado para afastar tecidos em cirurgias.')">
+                        <img src="assets/img/Afastador_Cirúrgico__Farabeuf_.png" alt="Farabeuf">
+                        <h2>Afastador Cirúrgico (Farabeuf)</h2>
+                        <p>Instrumento utilizado para afastar tecidos em cirurgias.</p>
+                        <span class="preco">R$ 30,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Porta-Agulha Mayo-Hegar', 'assets/img/Porta-Agulha (Mayo-Hegar).png', 'Ferramenta resistente para suturas cirúrgicas.')">
+                        <img src="assets/img/Porta-Agulha__Mayo-Hegar.png" alt="Mayo-Hegar">
+                        <h2>Porta-Agulha (Mayo-Hegar)</h2>
+                        <p>Ferramenta resistente para suturas cirúrgicas.</p>
+                        <span class="preco">R$ 280,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Pinça de Dissecção Adson', 'assets/img/Pinça de Dissecção (Adson).png', 'Uso ideal para manejo de tecidos delicados.')">
+                        <img src="assets/img/Pinça_de_Dissecção.png" alt="Adson">
+                        <h2>Pinça de Dissecção (Adson)</h2>
+                        <p>Uso ideal para manejo de tecidos delicados.</p>
+                        <span class="preco">R$ 38,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Cuba Rim', 'assets/img/Cuba Rim (Bandeja Cirúrgica).png', 'Recipiente prático para procedimentos clínicos e cirúrgicos.')">
+                        <img src="assets/img/Cuba_Rim__Bandeja_Cirúrgica_.png" alt="Cuba Rim">
+                        <h2>Cuba Rim</h2>
+                        <p>Recipiente prático para procedimentos clínicos e cirúrgicos.</p>
+                        <span class="preco">R$ 80,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Pinça de Campo Backhaus', 'assets/img/Pinça de Campo (Backhaus).png', 'Instrumento utilizado para fixar campos cirúrgicos.')">
+                        <img src="assets/img/Pinça_de_Campo__Backhaus.png" alt="Backhaus">
+                        <h2>Pinça de Campo (Backhaus)</h2>
+                        <p>Instrumento utilizado para fixar campos cirúrgicos.</p>
+                        <span class="preco">R$ 40,00</span>
+                    </div>
+
+                    <div class="product-card instrumentos" onclick="abrirDetalhes('Cureta Cirúrgica', 'assets/img/Cureta Cirúrgica.png', 'Instrumento usado para raspagem e remoção de tecidos.')">
+                        <img src="assets/img/cureta_cirúrgica.png" alt="Cureta Cirúrgica">
+                        <h2>Cureta Cirúrgica</h2>
+                        <p>Instrumento usado para raspagem e remoção de tecidos.</p>
+                        <span class="preco">R$ 40,00</span>
+                    </div>
                 </div>
             </div>
         </div>
