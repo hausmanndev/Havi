@@ -1,4 +1,4 @@
-# 🏥 HospiSupply
+# 🏥 Havi
 
 Este projeto é um **site institucional** para uma empresa fictícia que fornece produtos e serviços hospitalares.  
 Foi desenvolvido como parte da disciplina de **Front-End**.

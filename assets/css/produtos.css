@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
 /* Layout base baseado na Home */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #333;
     background-color: #f9f9f9;
     margin: 0;
@@ -68,18 +70,19 @@ body {
 .product-card h2 {
     color: #004c97;
     margin: 10px 0;
+    font-size: medium;
 }
 
 .product-card p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #555;
 }
 
 .preco {
     font-size: 18px;
-    font-weight: bold;
-    color: #27ae60;
+    color: black;
     margin: 10px 0;
+    position: relative;
 }
 
 .layout {
@@ -96,7 +99,7 @@ body {
     height: fit-content;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     position: sticky;
-    top: 120px;
+    top: 170px;
 }
 
 .sidebar h3 {
