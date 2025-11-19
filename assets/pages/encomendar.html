@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Encomendar — Sua Loja</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/encomendar.css">
+</head>
+
+<body>
+    <main class="encomendar-wrap" id="encomendar-root">
+
+        <!-- Left column -->
+        <section class="panel">
+            <header class="page-head">
+                <div>
+                    <h1>Encomendar</h1>
+                    <p class="muted">Preencha seus dados e adicione os produtos ao carrinho.</p>
+                </div>
+                <div class="muted">Pagamento na entrega | Frete calculado no próximo passo</div>
+            </header>
+
+            <!-- Form -->
+            <form id="order-form" novalidate>
+                <div class="form-grid">
+
+                    <div>
+                        <label for="nome">Nome completo</label>
+                        <input id="nome" name="nome" type="text" required>
+                        <div class="error" data-for="nome">Por favor, informe seu nome.</div>
+                    </div>
+
+                    <div>
+                        <label for="telefone">Telefone / WhatsApp</label>
+                        <input id="telefone" name="telefone" type="tel" required>
+                        <div class="error" data-for="telefone">Telefone inválido.</div>
+                    </div>
+
+                    <div>
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" required>
+                        <div class="error" data-for="email">E-mail inválido.</div>
+                    </div>
+
+                    <div>
+                        <label for="cep">CEP</label>
+                        <input id="cep" name="cep" type="text" required>
+                        <div class="error" data-for="cep">CEP inválido.</div>
+                    </div>
+
+                    <div style="grid-column:1/3">
+                        <label for="endereco">Endereço completo</label>
+                        <input id="endereco" name="endereco" type="text" required>
+                        <div class="error" data-for="endereco">Informe o endereço completo.</div>
+                    </div>
+
+                    <div>
+                        <label for="cidade">Cidade</label>
+                        <input id="cidade" name="cidade" type="text" required>
+                    </div>
+
+                    <div>
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado" required>
+                            <option value="">Selecione</option>
+                            <option>SP</option><option>RJ</option><option>MG</option>
+                            <option>RS</option><option>Outros</option>
+                        </select>
+                    </div>
+
+                    <div style="grid-column:1/3">
+                        <label for="observacoes">Observações (opcional)</label>
+                        <textarea id="observacoes" name="observacoes"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Produtos -->
+                <h2 class="prod-title">Produtos</h2>
+                <div class="products" id="product-list"></div>
+            </form>
+        </section>
+
+        <!-- Right column -->
+        <aside class="summary panel">
+            <h2>Seu Carrinho</h2>
+
+            <div class="cart-box">
+                <div class="muted hint">Itens adicionados seguem abaixo.</div>
+
+                <div class="cart-items" id="cart-items"></div>
+
+                <div class="cart-total">
+                    <div class="muted">Subtotal</div>
+                    <div id="subtotal">R$ 0,00</div>
+                </div>
+
+                <div class="actions">
+                    <button id="clear-cart" class="btn secondary small" type="button">Limpar</button>
+                    <button id="checkout" class="btn" type="button">Finalizar pedido</button>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/encomendar.js"></script>
+</body>
+</html>
