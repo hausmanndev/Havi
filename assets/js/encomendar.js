@@ -1,30 +1,22 @@
-/* ============================
-      Produtos (EXEMPLO)
-============================ */
-const PRODUCTS = [
-    { id: "p001", name: "Montagem Básica", price: 149.90, img: "https://via.placeholder.com/150?text=Montagem" },
-    { id: "p002", name: "Upgrade SSD 480GB", price: 269.00, img: "https://via.placeholder.com/150?text=SSD" },
-    { id: "p003", name: "Fonte 600W 80+ Bronze", price: 319.00, img: "https://via.placeholder.com/150?text=Fonte" },
-    { id: "p004", name: "Limpeza e Manutenção", price: 89.90, img: "https://via.placeholder.com/150?text=Limpeza" },
-    { id: "p005", name: "Instalação de SO", price: 129.00, img: "https://via.placeholder.com/150?text=SO" }
-];
+/* =======================================================
+      Funções utilitárias
+======================================================= */
+const currency = v =>
+    Number(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-/* ============================
-        Funções utilitárias
-============================ */
-const currency = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const onlyDigits = s => (s || "").replace(/\D/g, "");
 
-/* ============================
-         Variáveis DOM
-============================ */
-const $productList = document.getElementById("product-list");
+/* =======================================================
+      Variáveis de elementos da página
+======================================================= */
+const $productSelect = document.getElementById("product-select");
 const $cartItems = document.getElementById("cart-items");
 const $subtotal = document.getElementById("subtotal");
+const $clearCartBtn = document.getElementById("clear-cart");
 
-/* ============================
-        Carrinho (localStorage)
-============================ */
+/* =======================================================
+      Carrinho salvo no localStorage
+======================================================= */
 let CART = loadCart();
 
 function loadCart() {
@@ -41,52 +33,86 @@ function saveCart() {
     renderCart();
 }
 
-/* ============================
-        Controle carrinho
-============================ */
-function addToCart(id) {
-    if (!CART[id]) CART[id] = { qty: 0, ...PRODUCTS.find(p => p.id === id) };
-    CART[id].qty++;
-    saveCart();
-}
-function removeFromCart(id) {
-    if (!CART[id]) return;
-    CART[id].qty--;
-    if (CART[id].qty <= 0) delete CART[id];
-    saveCart();
-}
-function setQty(id, qty) {
-    qty = Math.max(0, parseInt(qty) || 0);
-    if (qty === 0) delete CART[id];
-    else CART[id].qty = qty;
-    saveCart();
+/* =======================================================
+      Carregar estados e preencher o <select>
+======================================================= */
+async function loadStates() {
+    try {
+        const response = await fetch("/assets/data/estados.json");
+        const estados = await response.json();
+
+        const select = document.getElementById("estado");
+
+        // Garante que só a primeira opção "Selecione" fique
+        select.innerHTML = `<option value="">Selecione</option>`;
+
+        estados.forEach(est => {
+            const option = document.createElement("option");
+            option.value = est.sigla;
+            option.textContent = est.sigla;
+            select.appendChild(option);
+        });
+
+    } catch (err) {
+        console.error("Erro ao carregar estados:", err);
+    }
 }
 
-/* ============================
-        Renderização
-============================ */
-function renderProducts() {
-    $productList.innerHTML = "";
-    PRODUCTS.forEach(p => {
-        const item = document.createElement("div");
-        item.className = "prod";
-        item.innerHTML = `
-            <img src="${p.img}" alt="${p.name}">
-            <div class="prod-info">
-                <strong>${p.name}</strong>
-                <div class="muted">${currency(p.price)}</div>
-            </div>
-            <button class="btn small secondary" data-add="${p.id}">Adicionar</button>
-        `;
-        $productList.appendChild(item);
+/* =======================================================
+      Carregar produtos e preencher o <select>
+======================================================= */
+async function loadProductsSelect() {
+    try {
+        const response = await fetch("/assets/data/produtos.json");
+        const products = await response.json();
+
+        // limpa o select
+        $productSelect.innerHTML = `<option value="">Selecione</option>`;
+
+        // adiciona opções
+        products.forEach(p => {
+            const option = document.createElement("option");
+            option.value = p.nome;
+            option.dataset.preco = p.preco;
+            option.textContent = `${p.nome} – ${currency(p.preco)}`;
+            $productSelect.appendChild(option);
+        });
+
+    } catch (err) {
+        console.error("Erro ao carregar produtos:", err);
+    }
+}
+
+/* =======================================================
+      Adiciona produto ao carrinho ao selecionar no <select>
+======================================================= */
+$productSelect.addEventListener("change", function () {
+    const option = this.options[this.selectedIndex];
+    if (!option.value) return;
+
+    const name = option.value;
+    const price = Number(option.dataset.preco);
+
+    // verifica se já existe
+    let itemId = null;
+    Object.keys(CART).forEach(id => {
+        if (CART[id].name === name) itemId = id;
     });
 
-    $productList.addEventListener("click", e => {
-        const id = e.target.getAttribute("data-add");
-        if (id) addToCart(id);
-    });
-}
+    if (!itemId) {
+        itemId = "prod_" + Date.now();
+        CART[itemId] = { name, price, qty: 0 };
+    }
 
+    CART[itemId].qty++;
+    saveCart();
+
+    this.value = ""; // volta para "Selecione"
+});
+
+/* =======================================================
+      Renderiza carrinho
+======================================================= */
 function renderCart() {
     $cartItems.innerHTML = "";
     let subtotal = 0;
@@ -94,7 +120,7 @@ function renderCart() {
 
     if (ids.length === 0) {
         $cartItems.innerHTML = `<div class="muted">Carrinho vazio.</div>`;
-        $subtotal.textContent = "R$ 0,00";
+        $subtotal.textContent = currency(0);
         return;
     }
 
@@ -104,58 +130,133 @@ function renderCart() {
 
         const row = document.createElement("div");
         row.className = "cart-item";
+
         row.innerHTML = `
-            <img src="${it.img}">
             <div class="ci-info">
-                <div><strong>${it.name}</strong></div>
+                <strong>${it.name}</strong>
                 <div class="muted">${currency(it.price)} x ${it.qty}</div>
             </div>
+
             <div class="qty">
                 <button data-dec="${id}">-</button>
-                <input type="number" value="${it.qty}" data-qty="${id}">
+                <input type="number" data-qty="${id}" value="${it.qty}">
                 <button data-inc="${id}">+</button>
             </div>
+
             <button class="btn small secondary" data-remove="${id}">Remover</button>
         `;
+
         $cartItems.appendChild(row);
     });
 
     $subtotal.textContent = currency(subtotal);
 
-    /* Eventos */
-    $cartItems.querySelectorAll("[data-inc]").forEach(b =>
-        b.addEventListener("click", () => addToCart(b.dataset.inc))
-    );
+    // botões +
+    $cartItems.querySelectorAll("[data-inc]").forEach(btn => {
+        btn.addEventListener("click", () => {
+            CART[btn.dataset.inc].qty++;
+            saveCart();
+        });
+    });
 
-    $cartItems.querySelectorAll("[data-dec]").forEach(b =>
-        b.addEventListener("click", () => removeFromCart(b.dataset.dec))
-    );
+    // botões -
+    $cartItems.querySelectorAll("[data-dec]").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.dec;
+            CART[id].qty--;
+            if (CART[id].qty <= 0) delete CART[id];
+            saveCart();
+        });
+    });
 
-    $cartItems.querySelectorAll("[data-remove]").forEach(b =>
-        b.addEventListener("click", () => setQty(b.dataset.remove, 0))
-    );
+    // remover
+    $cartItems.querySelectorAll("[data-remove]").forEach(btn => {
+        btn.addEventListener("click", () => {
+            delete CART[btn.dataset.remove];
+            saveCart();
+        });
+    });
 
-    $cartItems.querySelectorAll("[data-qty]").forEach(inp =>
-        inp.addEventListener("change", () => setQty(inp.dataset.qty, inp.value))
-    );
+    // alterar digitando
+    $cartItems.querySelectorAll("[data-qty]").forEach(inp => {
+        inp.addEventListener("change", () => {
+            const id = inp.dataset.qty;
+            const q = Math.max(0, parseInt(inp.value) || 0);
+            if (q === 0) delete CART[id];
+            else CART[id].qty = q;
+            saveCart();
+        });
+    });
 }
 
-/* ============================
-      Validação e envio
-============================ */
+/* =======================================================
+      Botão Limpar
+======================================================= */
+if ($clearCartBtn) {
+    $clearCartBtn.addEventListener("click", () => {
+        CART = {};
+        localStorage.removeItem("encomendar_cart");
+        renderCart();
+        $productSelect.value = "";
+    });
+}
+
+/* =======================================================
+      Checkout — validação do formulário
+======================================================= */
 document.getElementById("checkout").addEventListener("click", () => {
     const form = document.getElementById("order-form");
-    const errors = document.querySelectorAll(".error");
-    errors.forEach(e => (e.style.display = "none"));
+
+    // Some os erros anteriores
+    document.querySelectorAll(".error").forEach(e => {
+        e.style.display = "none";
+    });
 
     let ok = true;
 
-    if (!form.nome.value.trim()) showError("nome"), ok = false;
-    if (!/^\d{10,11}$/.test(onlyDigits(form.telefone.value))) showError("telefone"), ok = false;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value)) showError("email"), ok = false;
-    if (!/^\d{8}$/.test(onlyDigits(form.cep.value))) showError("cep"), ok = false;
-    if (!form.endereco.value.trim()) showError("endereco"), ok = false;
+    // Valida Hospital
+    if (!form.nome.value.trim()) {
+        showError("nome");
+        ok = false;
+    }
 
+    // Valida telefone (10 ou 11 dígitos)
+    if (!/^\d{10,11}$/.test(onlyDigits(form.telefone.value))) {
+        showError("telefone");
+        ok = false;
+    }
+
+    // Valida E-mail
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value)) {
+        showError("email");
+        ok = false;
+    }
+
+    // Valida CEP
+    if (!/^\d{8}$/.test(onlyDigits(form.cep.value))) {
+        showError("cep");
+        ok = false;
+    }
+
+    // Valida Endereço
+    if (!form.endereco.value.trim()) {
+        showError("endereco");
+        ok = false;
+    }
+
+    // Valida Cidade
+    if (!form.cidade.value.trim()) {
+        showError("cidade");
+        ok = false;
+    }
+
+    // Valida Estado
+    if (!form.estado.value.trim()) {
+        showError("estado");
+        ok = false;
+    }
+
+    // Carrinho vazio
     if (Object.keys(CART).length === 0) {
         alert("Carrinho vazio!");
         ok = false;
@@ -163,6 +264,7 @@ document.getElementById("checkout").addEventListener("click", () => {
 
     if (!ok) return;
 
+    // Monta objeto do pedido
     const order = {
         cliente: {
             nome: form.nome.value.trim(),
@@ -180,80 +282,107 @@ document.getElementById("checkout").addEventListener("click", () => {
     };
 
     console.log("PEDIDO:", order);
-    alert("Pedido validado! Veja no console o objeto final para envio.");
+
+    // 1. Mostrar mensagem dentro do carrinho
+    const cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = `
+        <div style="
+            padding: 1rem;
+            margin-top: .5rem;
+            text-align:center;
+            color: #2e7d32;
+            font-weight: 600;
+        ">
+            Pedido realizado com sucesso! ✔️
+        </div>
+    `;
+
+    // 2. Zerar subtotal
+    document.getElementById("subtotal").textContent = "R$ 0,00";
+
+    // 3. Limpar carrinho (array / objeto)
+    for (const key in CART) delete CART[key];
+    localStorage.removeItem("cart");
+
+    // 4. Limpar todos os campos do formulário
+    form.reset();
+
+    // 5. Exibir modal OU alert (use o que preferir)
+    // alert("Pedido realizado com sucesso! Acompanhe o andamento no seu e-mail.");
+    document.getElementById("success-modal").style.display = "flex";
 });
 
+/* Mostra o erro usando os elementos <div class="error" data-for="..."> */
 function showError(campo) {
-    document.querySelector(`.error[data-for="${campo}"]`).style.display = "block";
+    const el = document.querySelector(`.error[data-for="${campo}"]`);
+    if (el) el.style.display = "block";
 }
 
-/* ============================
-      Máscaras simples
-============================ */
-document.getElementById("telefone").addEventListener("input", e => {
-    let v = onlyDigits(e.target.value).slice(0, 11);
-    if (v.length > 2 && v.length <= 6) v = v.replace(/^(\d{2})(\d+)/, "($1) $2");
-    if (v.length > 6 && v.length <= 10) v = v.replace(/^(\d{2})(\d{4})(\d+)/, "($1) $2-$3");
-    if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
-    e.target.value = v;
-});
+/* =======================================================
+      Máscaras de telefone e CEP
+======================================================= */
+const telefoneEl = document.getElementById("telefone");
+if (telefoneEl) {
+    telefoneEl.addEventListener("input", e => {
+        let v = onlyDigits(e.target.value).slice(0, 11);
+        if (v.length > 2 && v.length <= 6) v = v.replace(/^(\d{2})(\d+)/, "($1) $2");
+        if (v.length > 6 && v.length <= 10) v = v.replace(/^(\d{2})(\d{4})(\d+)/, "($1) $2-$3");
+        if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        e.target.value = v;
+    });
+}
 
-document.getElementById("cep").addEventListener("input", e => {
-    let v = onlyDigits(e.target.value).slice(0, 8);
-    if (v.length > 5) v = v.replace(/^(\d{5})(\d+)/, "$1-$2");
-    e.target.value = v;
-});
+const cepEl = document.getElementById("cep");
+if (cepEl) {
+    cepEl.addEventListener("input", e => {
+        let v = onlyDigits(e.target.value).slice(0, 8);
+        if (v.length > 5) v = v.replace(/^(\d{5})(\d+)/, "$1-$2");
+        e.target.value = v;
+    });
+}
 
-/* ============================
-      VIA CEP — Auto preenchimento
-============================ */
+/* =======================================================
+      VIA CEP — preenchimento automático
+======================================================= */
 const cepField = document.getElementById("cep");
 const enderecoField = document.getElementById("endereco");
 const cidadeField = document.getElementById("cidade");
 const estadoField = document.getElementById("estado");
 
-// Ao sair do campo CEP -> busca automaticamente
-cepField.addEventListener("blur", async () => {
-    const cep = onlyDigits(cepField.value);
+if (cepField) {
+    cepField.addEventListener("blur", async () => {
+        const cep = onlyDigits(cepField.value);
+        if (cep.length !== 8) return;
 
-    if (cep.length !== 8) {
-        return; // deixa validação original cuidar
-    }
+        try {
+            const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            const data = await response.json();
 
-    try {
-        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const data = await response.json();
+            if (data.erro) {
+                alert("CEP não encontrado.");
+                return;
+            }
 
-        if (data.erro) {
-            alert("CEP não encontrado.");
-            return;
+            let endereco = `${data.logradouro || ""}`;
+            if (data.bairro) endereco += ` - ${data.bairro}`;
+
+            enderecoField.value = endereco.trim();
+            cidadeField.value = data.localidade || "";
+            estadoField.value = data.uf || "Outros";
+
+        } catch (err) {
+            console.error("Erro ViaCEP:", err);
+            alert("Erro ao consultar o CEP.");
         }
+    });
+}
 
-        // Monta endereço completo
-        let endereco = `${data.logradouro || ""}`;
-        if (data.bairro) endereco += ` - ${data.bairro}`;
-
-        enderecoField.value = endereco.trim();
-        cidadeField.value = data.localidade || "";
-        
-        // Seleciona o estado dentro do <select>
-        if ([...estadoField.options].some(opt => opt.value === data.uf)) {
-            estadoField.value = data.uf;
-        } else {
-            estadoField.value = "Outros";
-        }
-
-    } catch (err) {
-        console.error("Erro ViaCEP:", err);
-        alert("Erro ao consultar o CEP. Tente novamente.");
-    }
-});
-
-/* ============================
+/* =======================================================
       Inicialização
-============================ */
-renderProducts();
+======================================================= */
+loadProductsSelect();
 renderCart();
+loadStates();
 
 /* Expor para debug */
-window.ENCOMENDAR = { CART, addToCart, removeFromCart, setQty };
+window.ENCOMENDAR = { CART };

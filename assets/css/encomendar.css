@@ -21,6 +21,11 @@ body{
     justify-content:center;
 }
 
+label.required::after {
+    content: " *";
+    color: red;
+}
+
 .encomendar-wrap{
     width:100%;
     max-width:var(--max-width);
@@ -124,27 +129,76 @@ textarea{min-height:80px}
 .cart-box{padding:1rem;border-radius:10px;background:#fff;border:1px solid #eee}
 .cart-items{display:flex;flex-direction:column;gap:.6rem;max-height:310px;overflow:auto}
 
-.cart-item{
-    display:flex;
-    align-items:center;
-    gap:.6rem;
-    padding:.45rem;
-    border:1px solid #eee;
-    border-radius:8px;
-}
-.cart-item img{
-    width:56px;height:40px;object-fit:cover;border-radius:6px;
+/* Ajusta o layout do item do carrinho */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .10rem;
+    padding: .6rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
 }
 
-.qty{
-    display:flex;align-items:center;
-    border:1px solid #ddd;
-    padding:.2rem;
-    border-radius:8px;
+/* Agrupamento do nome + preço */
+.cart-item-info {
+    flex: 1;
 }
-.qty input{
-    width:40px;border:0;text-align:center;background:transparent
+
+/* Caixa de quantidade compacta */
+.qty {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background: #fff;
+    padding: .25rem .45rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
 }
+
+/* Botões de + e - */
+.qty button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 10px;
+    background: #eef2ff;
+    color: #2563eb;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s ease;
+}
+
+.qty button:hover {
+    background: #e0e7ff;
+}
+
+/* Ajuste do número */
+.qty input {
+    width: 32px; /* era grande demais, agora ideal */
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    background: none;
+    padding: 0;
+    color: #111;
+}
+
+/* Remove setas nativas */
+.qty input::-webkit-outer-spin-button,
+.qty input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.qty input {
+    -moz-appearance: textfield;
+}
+
 
 .cart-total{
     display:flex;
@@ -157,3 +211,33 @@ textarea{min-height:80px}
 
 .muted{color:var(--muted)}
 .hint{font-size:.85rem;margin-top:.3rem;color:#999}
+
+/* Modal de sucesso */
+#success-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#success-modal .box {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 380px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+#success-modal h2 {
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+}
+
+#success-modal p {
+    color: #555;
+}
+

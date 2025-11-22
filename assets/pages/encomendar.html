@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Encomendar — Sua Loja</title>
+    <title>Havi</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/encomendar.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="shortcut icon" href="/assets/img/icone.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -19,7 +21,6 @@
                     <h1>Encomendar</h1>
                     <p class="muted">Preencha seus dados e adicione os produtos ao carrinho.</p>
                 </div>
-                <div class="muted">Pagamento na entrega | Frete calculado no próximo passo</div>
             </header>
 
             <!-- Form -->
@@ -27,46 +28,49 @@
                 <div class="form-grid">
 
                     <div>
-                        <label for="nome">Nome completo</label>
+                        <label for="nome" class="required">Hospital</label>
                         <input id="nome" name="nome" type="text" required>
-                        <div class="error" data-for="nome">Por favor, informe seu nome.</div>
+                        <div class="error" data-for="nome">Por favor, informe o hospital.</div>
                     </div>
 
                     <div>
-                        <label for="telefone">Telefone / WhatsApp</label>
+                        <label for="rede_hospitalar">Rede Hospitalar (opcional)</label>
+                        <input id="rede_hospitalar" name="rede_hospitalar" type="text">
+                    </div>
+
+                    <div>
+                        <label for="telefone" class="required">Telefone / WhatsApp</label>
                         <input id="telefone" name="telefone" type="tel" required>
                         <div class="error" data-for="telefone">Telefone inválido.</div>
                     </div>
 
                     <div>
-                        <label for="email">E-mail</label>
+                        <label for="email" class="required">E-mail</label>
                         <input id="email" name="email" type="email" required>
                         <div class="error" data-for="email">E-mail inválido.</div>
                     </div>
 
                     <div>
-                        <label for="cep">CEP</label>
+                        <label for="cep" class="required">CEP</label>
                         <input id="cep" name="cep" type="text" required>
                         <div class="error" data-for="cep">CEP inválido.</div>
                     </div>
 
                     <div style="grid-column:1/3">
-                        <label for="endereco">Endereço completo</label>
+                        <label for="endereco" class="required">Endereço completo</label>
                         <input id="endereco" name="endereco" type="text" required>
                         <div class="error" data-for="endereco">Informe o endereço completo.</div>
                     </div>
 
                     <div>
-                        <label for="cidade">Cidade</label>
+                        <label for="cidade" class="required">Cidade</label>
                         <input id="cidade" name="cidade" type="text" required>
                     </div>
 
                     <div>
-                        <label for="estado">Estado</label>
+                        <label for="estado" class="required">Estado</label>
                         <select id="estado" name="estado" required>
                             <option value="">Selecione</option>
-                            <option>SP</option><option>RJ</option><option>MG</option>
-                            <option>RS</option><option>Outros</option>
                         </select>
                     </div>
 
@@ -79,7 +83,10 @@
 
                 <!-- Produtos -->
                 <h2 class="prod-title">Produtos</h2>
-                <div class="products" id="product-list"></div>
+                <select id="product-select" class="form-control">
+                    <option value="">Selecione</option>
+                </select>
+
             </form>
         </section>
 
@@ -105,6 +112,17 @@
         </aside>
 
     </main>
+
+    <div id="success-modal">
+        <div class="box">
+            <h2>Pedido realizado com sucesso!</h2>
+            <p>Acompanhe o andamento no seu e-mail.</p>
+            <button onclick="document.getElementById('success-modal').style.display='none'" class="btn">
+                Fechar
+            </button>
+        </div>
+    </div>
+
 
     <!-- JavaScript -->
     <script src="/assets/js/encomendar.js"></script>
