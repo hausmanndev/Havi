@@ -1,0 +1,176 @@
+[
+    {
+        "nome": "Máquina de Ressonância Magnética",
+        "preco": 3200000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/maquina-ressonancia.png"
+    },
+    {
+        "nome": "Máquina de Suporte à Vida (Ventilador Hospitalar)",
+        "preco": 38000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Máquina_de_Suporte_à_Vida__Ventilador_Hospitalar.png"
+    },
+    {
+        "nome": "Maca Hospitalar",
+        "preco": 3200,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Maca_Hospitalar.png"
+    },
+    {
+        "nome": "Cadeira de Rodas",
+        "preco": 2200,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Cadeira_de_Rodas.png"
+    },
+    {
+        "nome": "Carrinho de Anestesia",
+        "preco": 65000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Carrinho_de_Anestesia.png"
+    },
+    {
+        "nome": "Monitor Cardíaco Multiparamétrico",
+        "preco": 11000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Monitor_Cardíaco_Multiparamétrico.png"
+    },
+    {
+        "nome": "Desfibrilador Externo Automático (DEA)",
+        "preco": 9000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Desfibrilador_Externo_Automático.png"
+    },
+    {
+        "nome": "Bomba de Infusão",
+        "preco": 5200,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Bomba_de_Infusão.png"
+    },
+    {
+        "nome": "Ultrassom Portátil",
+        "preco": 20000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Ultrassom_Portátil.png"
+    },
+    {
+        "nome": "Foco Cirúrgico de Teto",
+        "preco": 26000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Foco_Cirúrgico_de_Teto.png"
+    },
+    {
+        "nome": "Autoclave Hospitalar",
+        "preco": 60000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Autoclave_Hospitalar.png"
+    },
+    {
+        "nome": "Eletrocardiógrafo (ECG)",
+        "preco": 7200,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Eletrocardiógrafo.png"
+    },
+    {
+        "nome": "Bomba de Perfusão",
+        "preco": 5400,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Bomba_de_Perfusão.png"
+    },
+    {
+        "nome": "Aparelho de Raio-X Móvel",
+        "preco": 12000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Aparelho_de_Raio-X_Móvel.png"
+    },
+    {
+        "nome": "Sistema de Endoscopia",
+        "preco": 85000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Sistema_de_Endoscopia.png"
+    },
+    {
+        "nome": "Aspirador Cirúrgico Hospitalar",
+        "preco": 4200,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Aspirador_Cirúrgico_Hospitalar.png"
+    },
+    {
+        "nome": "Máquina de Raio X (Fixa)",
+        "preco": 280000,
+        "categoria": "equipamentos",
+        "img": "/assets/img/Máquina_de_Raio_X.png"
+    },
+    {
+        "nome": "Kit básico de EPIs",
+        "preco": 10,
+        "categoria": "epis",
+        "img": "/assets/img/kit_básico_de_EPI.png"
+    },
+    {
+        "nome": "Kit intermediário de EPIs",
+        "preco": 30,
+        "categoria": "epis",
+        "img": "/assets/img/kit_de_EPI_de_nível_intermediário.png"
+    },
+    {
+        "nome": "Kit avançado de EPIs",
+        "preco": 80,
+        "categoria": "epis",
+        "img": "/assets/img/kit_de_EPI_de_nível_avançado.png"
+    },
+    {
+        "nome": "Bisturi Cirúrgico",
+        "preco": 3,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Bisturi_Cirúrgico.png"
+    },
+    {
+        "nome": "Pinça Hemostática (Kelly)",
+        "preco": 50,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Pinça_Hemostática__Kelly.png"
+    },
+    {
+        "nome": "Tesoura Cirúrgica (Metzenbaum)",
+        "preco": 75,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Tesoura_Cirúrgica__Metzenbaum.png"
+    },
+    {
+        "nome": "Afastador Cirúrgico (Farabeuf)",
+        "preco": 30,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Afastador_Cirúrgico__Farabeuf_.png"
+    },
+    {
+        "nome": "Porta-Agulha (Mayo-Hegar)",
+        "preco": 280,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Porta-Agulha__Mayo-Hegar.png"
+    },
+    {
+        "nome": "Pinça de Dissecção (Adson)",
+        "preco": 38,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Pinça_de_Dissecção.png"
+    },
+    {
+        "nome": "Cuba Rim",
+        "preco": 80,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Cuba_Rim__Bandeja_Cirúrgica_.png"
+    },
+    {
+        "nome": "Pinça de Campo (Backhaus)",
+        "preco": 40,
+        "categoria": "instrumentos",
+        "img": "/assets/img/Pinça_de_Campo__Backhaus.png"
+    },
+    {
+        "nome": "Cureta Cirúrgica",
+        "preco": 40,
+        "categoria": "instrumentos",
+        "img": "/assets/img/cureta_cirúrgica.png"
+    }
+]
