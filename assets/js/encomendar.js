@@ -38,7 +38,7 @@ function saveCart() {
 ======================================================= */
 async function loadStates() {
     try {
-        const response = await fetch("/assets/data/estados.json");
+        const response = await fetch("../data/estados.json");
         const estados = await response.json();
 
         const select = document.getElementById("estado");
@@ -63,7 +63,7 @@ async function loadStates() {
 ======================================================= */
 async function loadProductsSelect() {
     try {
-        const response = await fetch("/assets/data/produtos.json");
+        const response = await fetch("../data/produtos.json");
         const products = await response.json();
 
         // limpa o select
