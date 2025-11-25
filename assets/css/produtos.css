@@ -132,11 +132,98 @@ body {
     border: 1px solid #ccc;
 }
 
+/* =========================================================
+   RESPONSIVIDADE ATÉ 768px (tablets e celulares maiores)
+   ========================================================= */
+@media (max-width: 768px){
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .navbar-nav {
-        flex-direction: column;
-        gap: 10px;
+    .products-page{
+        margin: 80px 0;
+    }
+
+    .products-page h1{
+        font-size: 2rem;
+    }
+
+    .products-page p{
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+    }
+
+    /* Layout principal vira coluna */
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Sidebar agora ocupa toda a largura */
+    .sidebar{
+        position: static;
+        top: auto;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Cards ajustam tamanho */
+    .product-card{
+        width: 100%;
+        padding: 15px;
+    }
+
+    .product-card img{
+        height: 170px;
+    }
+
+    .product-grid{
+        gap: 20px;
+    }
+
+    /* Ajustes visuais gerais */
+    .container{
+        width: 95%;
+        padding: 10px 0;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE ATÉ 480px (celulares pequenos)
+   ========================================================= */
+@media (max-width: 480px){
+
+    html{
+        font-size: 14px;
+    }
+
+    .products-page h1{
+        font-size: 1.8rem;
+    }
+
+    .products-page p{
+        font-size: 1.2rem;
+    }
+
+    .product-card{
+        padding: 12px;
+    }
+
+    .product-card img{
+        height: 150px;
+    }
+
+    .product-card h2{
+        font-size: 1.2rem;
+    }
+
+    .preco{
+        font-size: 1.2rem;
+    }
+
+    .sidebar h3{
+        font-size: 1.2rem;
+    }
+
+    .sidebar ul li{
+        font-size: 1rem;
     }
 }
