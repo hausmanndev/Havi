@@ -34,6 +34,22 @@ label.required::after {
     gap:calc(var(--gap)*1.25);
 }
 
+.back-icon {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
+    color: #444;
+    transition: 0.25s;
+    width: fit-content;
+}
+
+.back-icon:hover {
+    color: var(--primary);
+    transform: translateX(-4px);
+}
+
+
 @media (max-width:980px){
     .encomendar-wrap{grid-template-columns:1fr}
 }

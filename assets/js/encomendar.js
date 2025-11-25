@@ -238,6 +238,12 @@ document.getElementById("checkout").addEventListener("click", () => {
         ok = false;
     }
 
+    // Valida Número
+    if (!onlyDigits(form.numero.value.trim())) {
+        showError("numero");
+        ok = false;
+    }
+
     // Valida Endereço
     if (!form.endereco.value.trim()) {
         showError("endereco");

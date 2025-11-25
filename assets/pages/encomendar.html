@@ -13,9 +13,11 @@
 
 <body>
     <main class="encomendar-wrap" id="encomendar-root">
-
         <!-- Left column -->
         <section class="panel">
+            <div class="back-icon" onclick="history.back()">
+                <span>←</span>
+            </div>
             <header class="page-head">
                 <div>
                     <h1>Encomendar</h1>
@@ -54,6 +56,12 @@
                         <label for="cep" class="required">CEP</label>
                         <input id="cep" name="cep" type="text" required>
                         <div class="error" data-for="cep">CEP inválido.</div>
+                    </div>
+
+                    <div>
+                        <label for="numero" class="required">Número</label>
+                        <input id="numero" name="numero" type="text" required>
+                        <div class="error" data-for="numero">Informe o número.</div>
                     </div>
 
                     <div style="grid-column:1/3">
