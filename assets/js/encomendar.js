@@ -289,7 +289,7 @@ document.getElementById("checkout").addEventListener("click", () => {
 
     console.log("PEDIDO:", order);
 
-    // 1. Mostrar mensagem dentro do carrinho
+    // Mostrar mensagem dentro do carrinho
     const cartItems = document.getElementById("cart-items");
     cartItems.innerHTML = `
         <div style="
@@ -303,17 +303,21 @@ document.getElementById("checkout").addEventListener("click", () => {
         </div>
     `;
 
-    // 2. Zerar subtotal
+    // Oculta os botões após finalizar
+    document.getElementById("clear-cart").style.display = "none";
+    document.getElementById("checkout").style.display = "none";
+
+    // Zerar subtotal
     document.getElementById("subtotal").textContent = "R$ 0,00";
 
-    // 3. Limpar carrinho (array / objeto)
+    // Limpar carrinho (array / objeto)
     for (const key in CART) delete CART[key];
-    localStorage.removeItem("cart");
+    localStorage.removeItem("encomendar_cart");
 
-    // 4. Limpar todos os campos do formulário
+    // Limpar todos os campos do formulário
     form.reset();
 
-    // 5. Exibir modal OU alert (use o que preferir)
+    // Exibir modal OU alert (use o que preferir)
     // alert("Pedido realizado com sucesso! Acompanhe o andamento no seu e-mail.");
     document.getElementById("success-modal").style.display = "flex";
 });
