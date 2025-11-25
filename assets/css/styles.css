@@ -307,7 +307,7 @@ button[class ^= navbar]:hover{
     width: 1000px;
     height: 780px;
     padding-top: 50px;
-    max-width: 1000px;
+    max-width: 580px;
     margin: 0 auto;
 }
 

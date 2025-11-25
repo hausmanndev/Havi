@@ -17,7 +17,40 @@
     <!-- header -->
     <header class="header bg-blue">
         <!-- Navbar -->
-        <div id="navbar-placeholder"></div>
+        <nav class="navbar bg-blue">
+            <div class="container flex">
+                <a href="/index.html" class="navbar-brand">
+                    <img class="logo" src="/assets/img/logo.png" alt="site logo">
+                </a>
+                <button type="button" class="navbar-show-btn">
+                    <img src="/assets/img/ham-menu-icon.png" alt="menu">
+                </button>
+
+                <div class="navbar-collapse bg-white">
+                    <button type="button" class="navbar-hide-btn">
+                        <img src="/assets/img/close-icon.png" alt="fechar">
+                    </button>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/index.html#about" class="nav-link">Sobre</a></li>
+                        <li class="nav-item"><a href="/assets/pages/produtos.html" class="nav-link">Produtos</a></li>
+                        <li class="nav-item"><a href="/assets/pages/encomendar.html" class="nav-link">Encomendar</a></li>
+                        <li class="nav-item"><a href="/index.html#package-service" class="nav-link">Soluções</a></li>
+                        <li class="nav-item"><a href="/index.html#contact" class="nav-link">Contato</a></li>
+                    </ul>
+                    <div class="search-bar">
+                        <form>
+                            <div class="search-bar-box flex">
+                                <span class="search-icon flex">
+                                    <img src="/assets/img/search-icon.png" alt="buscar">
+                                </span>
+                                <input type="search" class="search-control" placeholder="Buscar aqui">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
         <div class="header-inner text-white text-center">
             <div class="container grid">
@@ -285,10 +318,93 @@
     </main>
 
     <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <div class="footer-inner text-white py grid">
+
+                <!-- SOBRE NÓS -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Sobre Nós</h3>
+                    <div class="icon">
+                        <img src="/assets/img/logo.png" alt="Logo Havi Suprimentos">
+                    </div>
+                    <p class="text text-md">
+                        A <strong>Havi Suprimentos Hospitalares</strong> atua há mais de 10 anos no fornecimento de equipamentos, materiais e insumos médicos para hospitais, clínicas e laboratórios em todo o Brasil.  
+                        Nosso compromisso é com a qualidade, agilidade e segurança em cada entrega.
+                    </p>
+                    <address>
+                        Havi Suprimentos Hospitalares <br>
+                        São Paulo - SP <br>
+                        <a href="mailto:contato@havi.com.br" class="text-white">contato@havi.com.br</a> <br>
+                        +55 (11) 99999-9999
+                    </address>
+                </div>
+
+                <!-- CATEGORIAS -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Categorias</h3>
+                    <ul class="tags-list flex">
+                        <li>Equipamentos Médicos</li>
+                        <li>Materiais Cirúrgicos</li>
+                        <li>Insumos Hospitalares</li>
+                        <li>Laboratório</li>
+                        <li>UTI</li>
+                        <li>Higiene e Limpeza</li>
+                    </ul>
+                </div>
+
+                <!-- LINKS RÁPIDOS -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html" class="text-white">Início</a></li>
+                        <li><a href="/index.html#about" class="text-white">Sobre Nós</a></li>
+                        <li><a href="produtos.html" class="text-white">Produtos</a></li>
+                        <li><a href="produtos.html" class="text-white">Encomendar</a></li>
+                        <li><a href="/index.html#package-service" class="text-white">Soluções</a></li>
+                        <li><a href="/index.html#contact" class="text-white">Contato</a></li>
+                        <li><a href="politica.html" class="text-white">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTATO -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Fale Conosco</h3>
+                    <p class="text text-md">
+                        Atendimento especializado para hospitais, clínicas e distribuidores.  
+                        Entre em contato com nossa equipe comercial.
+                    </p>
+                    <ul class="appointment-info">
+                        <li>Segunda a Sexta: 08:00 às 18:00</li>
+                        <li>Sábados: 08:00 às 12:00</li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@havi.com.br</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+55 (11) 99999-9999</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- REDES SOCIAIS -->
+            <div class="footer-links">
+                <ul class="flex">
+                    <li><a href="https://www.facebook.com/?locale=pt_BR" class="text-white flex" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/" class="text-white flex" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://br.linkedin.com/" class="text-white flex" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+
+            <p class="text-sm text-white mt-2">
+                © 2025 Havi Suprimentos Hospitalares — Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
 
     <!-- custom js -->
     <script src="assets/js/script.js"></script>
-    <script src="./assets/js/components.js"></script>
 </body>
 </html>
