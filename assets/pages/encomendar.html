@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Havi</title>
+    <link rel="stylesheet" href="/assets/css/encomendar.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="shortcut icon" href="/assets/img/icone.svg" type="image/x-icon">
+</head>
+
+<body>
+    <main class="encomendar-wrap" id="encomendar-root">
+        <!-- Left column -->
+        <section class="panel">
+            <div class="back-icon" onclick="history.back()">
+                <span>←</span>
+            </div>
+            <header class="page-head">
+                <div>
+                    <h1>Encomendar</h1>
+                    <p class="muted">Preencha seus dados e adicione os produtos ao carrinho.</p>
+                </div>
+            </header>
+
+            <!-- Form -->
+            <form id="order-form" novalidate>
+                <div class="form-grid">
+
+                    <div>
+                        <label for="nome" class="required">Hospital</label>
+                        <input id="nome" name="nome" type="text" required>
+                        <div class="error" data-for="nome">Por favor, informe o hospital.</div>
+                    </div>
+
+                    <div>
+                        <label for="rede_hospitalar">Rede Hospitalar (opcional)</label>
+                        <input id="rede_hospitalar" name="rede_hospitalar" type="text">
+                    </div>
+
+                    <div>
+                        <label for="telefone" class="required">Telefone / WhatsApp</label>
+                        <input id="telefone" name="telefone" type="tel" required>
+                        <div class="error" data-for="telefone">Telefone inválido.</div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="required">E-mail</label>
+                        <input id="email" name="email" type="email" required>
+                        <div class="error" data-for="email">E-mail inválido.</div>
+                    </div>
+
+                    <div>
+                        <label for="cep" class="required">CEP</label>
+                        <input id="cep" name="cep" type="text" required>
+                        <div class="error" data-for="cep">CEP inválido.</div>
+                    </div>
+
+                    <div>
+                        <label for="numero" class="required">Número</label>
+                        <input id="numero" name="numero" type="text" required>
+                        <div class="error" data-for="numero">Informe o número.</div>
+                    </div>
+
+                    <div style="grid-column:1/3">
+                        <label for="endereco" class="required">Endereço completo</label>
+                        <input id="endereco" name="endereco" type="text" required>
+                        <div class="error" data-for="endereco">Informe o endereço completo.</div>
+                    </div>
+
+                    <div>
+                        <label for="cidade" class="required">Cidade</label>
+                        <input id="cidade" name="cidade" type="text" required>
+                    </div>
+
+                    <div>
+                        <label for="estado" class="required">Estado</label>
+                        <select id="estado" name="estado" required>
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+
+                    <div style="grid-column:1/3">
+                        <label for="observacoes">Observações (opcional)</label>
+                        <textarea id="observacoes" name="observacoes"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Produtos -->
+                <h2 class="prod-title">Produtos</h2>
+                <select id="product-select" class="form-control">
+                    <option value="">Selecione</option>
+                </select>
+
+            </form>
+        </section>
+
+        <!-- Right column -->
+        <aside class="summary panel">
+            <h2>Seu Carrinho</h2>
+
+            <div class="cart-box">
+                <div class="muted hint">Itens adicionados seguem abaixo.</div>
+
+                <div class="cart-items" id="cart-items"></div>
+
+                <div class="cart-total">
+                    <div class="muted">Subtotal</div>
+                    <div id="subtotal">R$ 0,00</div>
+                </div>
+
+                <div class="actions">
+                    <button id="clear-cart" class="btn secondary small" type="button">Limpar</button>
+                    <button id="checkout" class="btn" type="button">Finalizar pedido</button>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <div id="success-modal">
+        <div class="box">
+            <h2>Pedido realizado com sucesso!</h2>
+            <p>Acompanhe o andamento no seu e-mail.</p>
+            <button onclick="document.getElementById('success-modal').style.display='none'" class="btn">
+                Fechar
+            </button>
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="/assets/js/encomendar.js"></script>
+</body>
+</html>

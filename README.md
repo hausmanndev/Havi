@@ -1,4 +1,4 @@
-# 🏥 HospiSupply
+# 🏥 Havi
 
 Este projeto é um **site institucional** para uma empresa fictícia que fornece produtos e serviços hospitalares.  
 Foi desenvolvido como parte da disciplina de **Front-End**.
@@ -15,9 +15,6 @@ Foi desenvolvido como parte da disciplina de **Front-End**.
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-
-## 📂 Estrutura de pastas
-
 
 ## 🎓 Objetivo acadêmico
 Este projeto foi desenvolvido para fins educacionais como exercício de front-end.  

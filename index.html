@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Havi</title>
+    <link rel="shortcut icon" href="./assets/img/icone.svg" type="image/x-icon">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="header bg-blue">
+        <!-- Navbar -->
+        <nav class="navbar bg-blue">
+            <div class="container flex">
+                <a href="/index.html" class="navbar-brand">
+                    <img class="logo" src="/assets/img/logo.png" alt="site logo">
+                </a>
+                <button type="button" class="navbar-show-btn">
+                    <img src="/assets/img/ham-menu-icon.png" alt="menu">
+                </button>
+
+                <div class="navbar-collapse bg-white">
+                    <button type="button" class="navbar-hide-btn">
+                        <img src="/assets/img/close-icon.png" alt="fechar">
+                    </button>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="/index.html" class="nav-link">Início</a></li>
+                        <li class="nav-item"><a href="/index.html#about" class="nav-link">Sobre</a></li>
+                        <li class="nav-item"><a href="/assets/pages/produtos.html" class="nav-link">Produtos</a></li>
+                        <li class="nav-item"><a href="/assets/pages/encomendar.html" class="nav-link">Encomendar</a></li>
+                        <li class="nav-item"><a href="/index.html#package-service" class="nav-link">Soluções</a></li>
+                        <li class="nav-item"><a href="/index.html#contact" class="nav-link">Contato</a></li>
+                    </ul>
+                    <div class="search-bar">
+                        <form>
+                            <div class="search-bar-box flex">
+                                <span class="search-icon flex">
+                                    <img src="/assets/img/search-icon.png" alt="buscar">
+                                </span>
+                                <input type="search" class="search-control" placeholder="Buscar aqui">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header-inner text-white text-center">
+            <div class="container grid">
+                <div class="header-inner-left">
+                    <h1>Seu parceiro de confiança em <span>suprimentos hospitalares</span></h1>
+                    <p class="lead">Fornecimento seguro e ágil para hospitais e clínicas</p>
+                    <p class="text text-md">Oferecemos soluções completas em equipamentos, materiais e insumos médicos para atender às necessidades do seu hospital.</p>
+                    <div class="btn-group">
+                        <a href="pages/produtos.html" class="btn btn-white">Ver Produtos</a>
+                        <a href="#" class="btn btn-light-blue">Entrar</a>
+                    </div>
+                </div>
+                <div class="header-inner-right">
+                    <img src="assets/img/home2.png">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end of header -->
+
+    <main>
+        <!-- about section -->
+        <section id="about" class="about py">
+            <div class="about-inner">
+                <div class="container grid">
+                    <div class="about-left text-center">
+                        <div class="section-head">
+                            <h2>Sobre Nós</h2>
+                            <div class="border-line"></div>
+                        </div>
+                        <p class="text text-lg">Somos especialistas no fornecimento de suprimentos hospitalares. Atuamos com equipamentos médicos, materiais descartáveis e insumos de qualidade para hospitais, clínicas e laboratórios.</p>
+                        <a href="#contact" class="btn btn-white">Entre em Contato</a>
+                    </div>
+                    <div class="about-right flex">
+                        <div class="img">
+                            <img src="assets/img/about-2.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of about section -->
+
+        <!-- banner one -->
+        <section id="banner-one" class="banner-one text-center">
+            <div class="container text-white">
+                <blockquote class="lead"><i class="fas fa-quote-left"></i> Garantindo que hospitais tenham sempre os suprimentos certos, na hora certa. <i class="fas fa-quote-right"></i></blockquote>
+                <!-- <small class="text text-sm">- Anonim Nano</small> -->
+            </div>
+        </section>
+        <!-- end of banner one -->
+
+        <!-- services section -->
+        <section id="services" class="services py">
+            <div class="container">
+                <div class="section-head text-center">
+                    <h2 class="lead">Excelência em Produtos e Serviços Hospitalares</h2>
+                    <p class="text text-lg">Oferecemos produtos hospitalares de qualidade e suporte completo para clínicas e hospitais</p>
+                    <div class="line-art flex">
+                        <div></div>
+                        <img src="assets/img/4-dots.png">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="services-inner text-center grid">
+
+                    <article class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service-icon-1.png">
+                        </div>
+                        <h3>Suprimentos Médicos</h3>
+                        <p class="text text-sm">Fornecemos luvas, máscaras, seringas e outros materiais essenciais para hospitais e clínicas, garantindo segurança e qualidade.</p>
+                    </article>
+
+                    <article class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service-icon-2.png">
+                        </div>
+                        <h3>Equipamentos Hospitalares</h3>
+                        <p class="text text-sm">Disponibilizamos equipamentos médicos como termômetros, oxímetros e bisturis, com assistência técnica especializada.</p>
+                    </article>
+
+                    <article class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service-icon-3.png">
+                        </div>
+                        <h3>Entrega Rápida e Segura</h3>
+                        <p class="text text-sm">Garantimos transporte seguro e ágil para todos os pedidos, com rastreamento e logística eficiente para hospitais e clínicas.</p>
+                    </article>
+
+                    <article class="service-item">
+                        <div class="icon">
+                            <img src="assets/img/service-icon-4.png">
+                        </div>
+                        <h3>Consultoria e Suporte</h3>
+                        <p class="text text-sm">Oferecemos suporte completo e consultoria especializada para otimização de estoque e aquisição de materiais hospitalares.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+        <!-- end of services section -->
+
+
+        <!-- banner two section -->
+        <section id="banner-two" class="banner-two text-center">
+            <div class="container grid">
+                <div class="banner-two-left">
+                    <img src="assets/img/banner3.png">
+                </div>
+                <div class="banner-two-right">
+                    <p class="lead text-white">Suprimentos certos, no momento certo, para salvar vidas.</p>
+                    <div class="btn-group">
+                        <a href="/assets/pages/produtos.html" class="btn btn-white">Ver Produtos</a>
+                        <a href="#" class="btn btn-light-blue">Entrar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of banner two section -->
+
+        <!-- doctors section -->
+        <section id="doc-panel" class="doc-panel py">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Principais Produtos</h2>
+                </div>
+
+                <div class="doc-panel-inner grid">
+                    <div class="doc-panel-item">
+                        <div class="img flex">
+                            <img src="assets/img/maquina-suporte_a_vida.png" alt="Máquina de Suporte à Vida">
+                            <div class="info text-center bg-blue text-white flex">
+                                <p class="lead">Máquina de Suporte à Vida</p>
+                                <p class="text-lg">Terapia Intensiva</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-panel-item">
+                        <div class="img flex">
+                            <img src="assets/img/maca.png" alt="Maca hospitalar">
+                            <div class="info text-center bg-blue text-white flex">
+                                <p class="lead">Maca hospitalar</p>
+                                <p class="text-lg">Móveis Hospitalares</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-panel-item">
+                        <div class="img flex">
+                            <img src="assets/img/EPIs.png" alt="Kit de EPIs Hospitalares">
+                            <div class="info text-center bg-blue text-white flex">
+                                <p class="lead">Kit de EPIs Hospitalares</p>
+                                <p class="text-lg">Proteção Individual</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of doctors section -->
+
+        <!-- package services section -->
+        <section id="package-service" class="package-service py text-center">
+            <div class="container">
+                <!-- Cabeçalho -->
+                <div class="package-service-head text-white">
+                    <h2>Nossas Soluções</h2>
+                    <p class="text text-lg">Pacotes completos de produtos hospitalares para sua instituição</p>
+                </div>
+
+                <!-- Itens de soluções -->
+                <div class="package-service-inner grid">
+
+                    <!-- Equipamentos Médicos -->
+                    <div class="package-service-item bg-white">
+                        <div class="icon flex">
+                            <i class="fas fa-procedures fa-2x"></i>
+                        </div>
+                        <h3>Equipamentos Médicos</h3>
+                        <p class="text text-sm">
+                            Fornecemos equipamentos essenciais para hospitais e clínicas, incluindo monitores, ventiladores, mesas cirúrgicas e camas hospitalares.
+                        </p>
+                        <a href="/assets/pages/produtos.html" class="btn btn-blue">Ver Produtos</a>
+                    </div>
+
+                    <!-- Materiais Cirúrgicos -->
+                    <div class="package-service-item bg-white">
+                        <div class="icon flex">
+                            <i class="fas fa-syringe fa-2x"></i>
+                        </div>
+                        <h3>Materiais Cirúrgicos</h3>
+                        <p class="text text-sm">
+                            Disponibilizamos kits cirúrgicos, instrumentos esterilizados e materiais descartáveis de alta qualidade para procedimentos seguros.
+                        </p>
+                        <a href="/assets/pages/produtos.html" class="btn btn-blue">Ver Produtos</a>
+                    </div>
+
+                    <!-- Insumos Hospitalares -->
+                    <div class="package-service-item bg-white">
+                        <div class="icon flex">
+                            <i class="fas fa-pills fa-2x"></i>
+                        </div>
+                        <h3>Insumos Hospitalares</h3>
+                        <p class="text text-sm">
+                            Entregamos insumos hospitalares, como luvas, máscaras, aventais, sondas, gazes e outros itens essenciais para a rotina hospitalar.
+                        </p>
+                        <a href="/assets/pages/produtos.html" class="btn btn-blue">Ver Produtos</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- end of package services section -->
+
+
+        <!-- contact section -->
+        <section id="contact" class="contact py">
+            <div class="container grid">
+
+                <!-- Mapa -->
+                <div class="contact-left">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.8651725865325!2d-46.56120982488829!3d-23.64499907874239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4328c992748f%3A0xcea3c3e698444297!2sSENAI%20S%C3%A3o%20Caetano%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1761178860798!5m2!1spt-BR!2sbr" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" >
+                    </iframe>
+                </div>
+
+                <!-- Formulário de contato -->
+                <div class="contact-right text-white text-center bg-blue">
+                    <div class="contact-head">
+                        <h3 class="lead">Fale Conosco</h3>
+                        <p class="text text-md">
+                            Deseja solicitar um orçamento, parceria ou mais informações sobre nossos produtos hospitalares?  
+                            Envie uma mensagem e retornaremos o mais breve possível.
+                        </p>
+                    </div>
+
+                    <form>
+                        <div class="form-element">
+                            <input type="text" class="form-control" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="form-element">
+                            <input type="email" class="form-control" placeholder="Seu e-mail profissional" required>
+                        </div>
+                        <div class="form-element">
+                            <input type="text" class="form-control" placeholder="Nome da instituição (opcional)">
+                        </div>
+                        <div class="form-element">
+                            <textarea rows="5" placeholder="Digite sua mensagem" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-white btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- end of contact section -->
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <div class="footer-inner text-white py grid">
+
+                <!-- SOBRE NÓS -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Sobre Nós</h3>
+                    <div class="icon">
+                        <img src="/assets/img/logo.png" alt="Logo Havi Suprimentos">
+                    </div>
+                    <p class="text text-md">
+                        A <strong>Havi Suprimentos Hospitalares</strong> atua há mais de 10 anos no fornecimento de equipamentos, materiais e insumos médicos para hospitais, clínicas e laboratórios em todo o Brasil.  
+                        Nosso compromisso é com a qualidade, agilidade e segurança em cada entrega.
+                    </p>
+                    <address>
+                        Havi Suprimentos Hospitalares <br>
+                        São Paulo - SP <br>
+                        <a href="mailto:contato@havi.com.br" class="text-white">contato@havi.com.br</a> <br>
+                        +55 (11) 99999-9999
+                    </address>
+                </div>
+
+                <!-- CATEGORIAS -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Categorias</h3>
+                    <ul class="tags-list flex">
+                        <li>Equipamentos Médicos</li>
+                        <li>Materiais Cirúrgicos</li>
+                        <li>Insumos Hospitalares</li>
+                        <li>Laboratório</li>
+                        <li>UTI</li>
+                        <li>Higiene e Limpeza</li>
+                    </ul>
+                </div>
+
+                <!-- LINKS RÁPIDOS -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Links Rápidos</h3>
+                    <ul>
+                        <li><a href="/index.html" class="text-white">Início</a></li>
+                        <li><a href="/index.html#about" class="text-white">Sobre Nós</a></li>
+                        <li><a href="/assets/pages/produtos.html" class="text-white">Produtos</a></li>
+                        <li><a href="/assets/pages/encomendar.html" class="text-white">Encomendar</a></li>
+                        <li><a href="/index.html#package-service" class="text-white">Soluções</a></li>
+                        <li><a href="/index.html#contact" class="text-white">Contato</a></li>
+                        <li><a href="politica.html" class="text-white">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTATO -->
+                <div class="footer-item">
+                    <h3 class="footer-head">Fale Conosco</h3>
+                    <p class="text text-md">
+                        Atendimento especializado para hospitais, clínicas e distribuidores.  
+                        Entre em contato com nossa equipe comercial.
+                    </p>
+                    <ul class="appointment-info">
+                        <li>Segunda a Sexta: 08:00 às 18:00</li>
+                        <li>Sábados: 08:00 às 12:00</li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@havi.com.br</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+55 (11) 99999-9999</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- REDES SOCIAIS -->
+            <div class="footer-links">
+                <ul class="flex">
+                    <li><a href="https://www.facebook.com/?locale=pt_BR" class="text-white flex" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/" class="text-white flex" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://br.linkedin.com/" class="text-white flex" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+
+            <p class="text-sm text-white mt-2">
+                © 2025 Havi Suprimentos Hospitalares — Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- custom js -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
